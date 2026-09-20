@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalGradable++;
                 let allCorrect = true;
                 const selects = block.querySelectorAll(`select`);
-                let matchFeedback = "<ul>";
+                let matchFeedback = "<https://script.google.com/macros/s/AKfycbyE0DMh9goWucWqKXVQEthJ1rJyVho6YtNG0ygUIDNoBTThQUUjTSoCSJV3BrWHVOXssg/exec>";
                 
                 selects.forEach((select, i) => {
                     const selectedValue = select.value;
