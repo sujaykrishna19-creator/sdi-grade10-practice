@@ -10,28 +10,64 @@
 <body>
 
     <header>
-        <h1>System Design & Innovation (SDI)</h1>
-        <p>Grade 10 - Self Assessment & Practice</p>
+        <div class="header-content">
+            <h1>System Design & Innovation (SDI)</h1>
+            <p>Grade 10 - Self Assessment & Practice</p>
+        </div>
+        <div class="student-profile" id="student-profile-display" style="display: none;">
+            <!-- Profile info injected here -->
+        </div>
     </header>
 
-    <main>
-        <div class="topic-selector" id="topic-selector">
-            <!-- Buttons injected by JS -->
-        </div>
+    <div class="layout">
+        <aside class="sidebar">
+            <h3>Topics</h3>
+            <nav class="topic-selector" id="topic-selector">
+                <!-- Links injected by JS -->
+            </nav>
+        </aside>
 
-        <div id="quiz-root">
-            <!-- Quiz content injected by JS -->
-        </div>
+        <main class="main-content">
+            <!-- Registration View -->
+            <div id="registration-view" class="view-section active">
+                <h2>Welcome to SDI Grade 10 Practice</h2>
+                <div class="subject-info">
+                    <p>In Grade 10, students develop advanced Computer Science knowledge and prepare for future study in DP Computer Science, AI, engineering, software development and technology-related pathways. The focus is on computational thinking, Java programming, machine learning, system development and capstone-style innovation.</p>
+                    <p>Use this platform to test your knowledge on recent topics. Your scores will be recorded to track your progress.</p>
+                </div>
 
-        <div class="actions" id="action-container" style="display: none;">
-            <button class="submit-btn" id="submit-btn">Submit Answers</button>
-        </div>
+                <div class="registration-form">
+                    <h3>Please enter your details to begin</h3>
+                    <div class="form-group">
+                        <label for="student-name">Full Name</label>
+                        <input type="text" id="student-name" placeholder="e.g. Jane Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-homeroom">Homeroom</label>
+                        <input type="text" id="student-homeroom" placeholder="e.g. 10A" required>
+                    </div>
+                    <button class="primary-btn" id="start-btn">Save & Continue</button>
+                    <p id="reg-error" class="error-text" style="display: none;">Please fill in both fields.</p>
+                </div>
+            </div>
 
-        <div class="results-container" id="results-container">
-            <div class="score-display" id="score-display"></div>
-            <div id="feedback-list"></div>
-        </div>
-    </main>
+            <!-- Quiz View -->
+            <div id="quiz-view" class="view-section">
+                <div id="quiz-root">
+                    <!-- Quiz content injected by JS -->
+                </div>
+
+                <div class="actions" id="action-container" style="display: none;">
+                    <button class="primary-btn" id="submit-btn">Submit Answers</button>
+                </div>
+
+                <div class="results-container" id="results-container">
+                    <div class="score-display" id="score-display"></div>
+                    <div id="feedback-list"></div>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <footer>
         <p>&copy; 2026 Centre of Excellence - SDI Curriculum</p>
