@@ -279,8 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsContainer.scrollIntoView({ behavior: 'smooth' });
     });
 
-    // Mock function to "store" scores. 
-    // In a real environment on GitHub Pages, this should POST to a Google Apps Script Web App or Firebase.
+    // Save the score to Google Sheets via Web App
     function saveScoreToServer(topic, score, maxScore) {
         const payload = {
             studentName: studentInfo.name,
@@ -291,22 +290,23 @@ document.addEventListener('DOMContentLoaded', () => {
             timestamp: new Date().toISOString()
         };
 
-        console.log("Saving Score to Database:", payload);
-        
-        // Example of saving to LocalStorage for offline tracking:
+        // Offline fallback
         let savedScores = JSON.parse(localStorage.getItem('sdi_scores') || '[]');
         savedScores.push(payload);
         localStorage.setItem('sdi_scores', JSON.stringify(savedScores));
 
-        /* 
-        TO TEACHER: To actually collect this in a Google Sheet, you would use fetch():
+        // Send to Google Sheets
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbyE0DMh9goWucWqKXVQEthJ1rJyVho6YtNG0ygUIDNoBTThQUUjTSoCSJV3BrWHVOXssg/exec';
         
-        fetch('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL', {
+        fetch(scriptUrl, {
             method: 'POST',
-            mode: 'no-cors',
+            mode: 'no-cors', // Needed to avoid CORS issues with Google Scripts
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
+        }).then(() => {
+            console.log("Score successfully sent to Google Sheets.");
+        }).catch(err => {
+            console.error("Error saving score:", err);
         });
-        */
     }
 });
