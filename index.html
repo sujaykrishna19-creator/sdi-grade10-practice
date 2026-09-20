@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 10 SDI - Practice Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>System Design & Innovation (SDI)</h1>
+        <p>Grade 10 - Self Assessment & Practice</p>
+    </header>
+
+    <main>
+        <div class="topic-selector" id="topic-selector">
+            <!-- Buttons injected by JS -->
+        </div>
+
+        <div id="quiz-root">
+            <!-- Quiz content injected by JS -->
+        </div>
+
+        <div class="actions" id="action-container" style="display: none;">
+            <button class="submit-btn" id="submit-btn">Submit Answers</button>
+        </div>
+
+        <div class="results-container" id="results-container">
+            <div class="score-display" id="score-display"></div>
+            <div id="feedback-list"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Centre of Excellence - SDI Curriculum</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
